@@ -1,0 +1,109 @@
+# Constant Usage in Variables
+TAX_RATE = 0.18  # Constant for tax rate
+MAX_USERS = 100  # Constant for the maximum number of users
+
+# Decision Structures with if-else
+def check_eligibility(age):
+    """Function to check if a user is eligible based on their age."""
+    if age < 18:
+        return "You are not eligible for this service."
+    else:
+        return "You are eligible for this service."
+
+# Repetition with while Loops
+def countdown(start):
+    """Function to count down from a given number."""
+    while start > 0:
+        print(f"Counting down: {start}")
+        start -= 1  # Decrease the counter
+    print("Countdown finished!")
+
+# Sequence Iteration with for Loops
+def print_fruits(fruits):
+    """Function to print each fruit in a list."""
+    for fruit in fruits:
+        print(f"Fruit: {fruit}")
+
+# Function Creation and Utilization
+def calculate_tax(amount):
+    """Returns the tax for a given amount based on the constant tax rate."""
+    return amount * TAX_RATE
+
+def greet_user(name):
+    """Greets the user with their name."""
+    print(f"Hello, {name}!")
+
+# List Manipulation and Iteration
+def double_list_elements(numbers):
+    """Function to double each element in a list."""
+    for i in range(len(numbers)):
+        numbers[i] *= 2  # Double the value at each index
+    return numbers
+
+# File Operations
+def write_to_file(filename, content):
+    """Function to write content to a file."""
+    try:
+        with open(filename, 'w') as file:
+            file.write(content)
+        print(f"Content successfully written to {filename}.")
+    except Exception as e:
+        print(f"Error writing to file: {e}")
+
+def read_from_file(filename):
+    """Function to read and print the content of a file."""
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+        print(f"Content of {filename}:")
+        print(content)
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' was not found.")
+    except Exception as e:
+        print(f"Error reading the file: {e}")
+
+# Exception Handling
+def divide_numbers(a, b):
+    """Function to divide two numbers with exception handling."""
+    try:
+        result = a / b
+        print(f"Division result: {result}")
+    except ZeroDivisionError:
+        print("Error: Division by zero is not allowed.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    else:
+        print("Division completed successfully.")
+    finally:
+        print("End of division operation.")
+
+# Main Program Execution
+if __name__ == "__main__":
+    # Example for constant usage
+    item_price = 100
+    tax = calculate_tax(item_price)
+    print(f"Tax on ${item_price} is: ${tax}")
+
+    # Example for decision structure (if-else)
+    age = 25
+    print(check_eligibility(age))
+
+    # Example for repetition with while loop
+    countdown(5)
+
+    # Example for sequence iteration with for loop
+    fruits = ["apple", "banana", "cherry"]
+    print_fruits(fruits)
+
+    # Example for list manipulation
+    numbers = [1, 2, 3, 4, 5]
+    doubled_numbers = double_list_elements(numbers)
+    print(f"Doubled numbers: {doubled_numbers}")
+
+    # File operations
+    write_to_file('example.txt', 'Hello, this is a test file.\nSecond line of text.')
+    read_from_file('example.txt')
+
+    # Exception handling
+    divide_numbers(10, 2)
+    divide_numbers(10, 0)  # This will trigger a ZeroDivisionError
