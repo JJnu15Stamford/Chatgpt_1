@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Card from './Components/Card';
-import './Components/Card.css';
+import Card from './Components/Card'; // Import Card component
+import './App.css'; // Main app CSS
 
 function App() {
-  const [count, setCount] = useState(0); // React Hook to track button click count
+  const [count, setCount] = useState(0);
 
   const handleButtonClick = () => {
-    setCount(count + 1);
+    setCount(count + 1); // Increment the count on button click
   };
 
   return (
@@ -15,15 +15,14 @@ function App() {
       <button onClick={handleButtonClick}>Click me</button>
       <p>Button clicked {count} times</p>
 
-      {/* Rendering the Card component and passing props */}
+      {/* Passing props to the Card component */}
       <Card 
         title="Card Title" 
-        description="This is a description of the card." 
-        imageUrl="https://via.placeholder.com/150" 
+        description="This is a description of the card."
+        imageUrl="https://images.contentstack.io/v3/assets/bltcedd8dbd5891265b/blt4a4af7e6facea579/6668df6ceca9a600983250ac/beautiful-flowers-hero.jpg?q=70&width=3840&auto=webp" 
       />
     </div>
   );
 }
 
 export default App;
-
