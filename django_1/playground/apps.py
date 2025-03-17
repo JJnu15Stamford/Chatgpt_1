@@ -1,4 +1,4 @@
-from django.apps import AppConfig
+from .apps import AppConfig
 
 
 class PlaygroundConfig(AppConfig):
