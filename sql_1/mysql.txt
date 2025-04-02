@@ -1,0 +1,422 @@
+Last login: Mon Mar 17 18:08:52 on ttys032
+sa40onlaptop@Skills-Academy-43 Chatgpt % /Applications/MAMP/Library/bin/mysql80/bin/mysql  -u root -p 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 62
+Server version: 8.0.40 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE StudentRecords;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> CREATE TABLE INT PRIMARY KEY,
+    -> CREATE TABLE students (
+    -> StudentID INT PRIMARY KEY,
+    -> Name VARCHAR(50),
+    -> Age INT, 
+    -> Major VARCHAR(50)
+    -> SHOW DATABASES:
+    -> 
+    -> SHOW DATABASES;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INT PRIMARY KEY,
+CREATE TABLE students (
+StudentID INT PRIMARY KEY,
+Name VARCHAR' at line 1
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| StudentRecords     |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| StudentRecords     |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> USE StudentRecords;
+Database changed
+mysql> StudentID INT PRIMARY KEY,
+    -> Name VARCHAR(50),
+    -> Age INT,
+    -> 
+    -> StudentID INT PRIMARY KEY,
+    -> FirstName VARCHAR(50),
+    -> LastName VARCHAR(50),
+    -> Birthdate DATE,
+    -> Major VARCHAR(50)
+    -> CREATE TABLE students ();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'StudentID INT PRIMARY KEY,
+Name VARCHAR(50),
+Age INT,
+
+StudentID INT PRIMARY KEY' at line 1
+mysql> CREATE TABLE Students ();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> USE StudentRecords;
+Database changed
+mysql> CREATE TABLES Students ();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLES Students ()' at line 1
+mysql> CREATE TABLE Students ();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> CREATE TABLE Students (StudentID INT PRIMARY KEY,);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> Name VARCHAR(50),
+    -> Age INT,
+    -> Major VARCHAR(50)
+    -> CREATE TABLES Students (StudentID INT PRIMARY KEY,);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Name VARCHAR(50),
+Age INT,
+Major VARCHAR(50)
+CREATE TABLES Students (StudentID I' at line 1
+mysql> Name VARCHAR(50),
+    -> Age INT,
+    -> Major VARCHAR(50)
+    -> 
+    -> CREATE TABLES Students ();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Name VARCHAR(50),
+Age INT,
+Major VARCHAR(50)
+
+CREATE TABLES Students ()' at line 1
+mysql> StudentID INT PRIMARY KEY,
+    -> Name VARCHAR(50),
+    -> Age INT,
+    -> Major VARCHAR(50)
+    -> git add.
+    -> 
+
+^C
+mysql> 
+mysql> 
+mysql> 
+
+^C
+mysql> 
+mysql> 
+mysql> CREATE DATABASE butterfly;
+ERROR 4031 (HY000): The client was disconnected by the server because of inactivity. See wait_timeout and interactive_timeout for configuring this behavior.
+No connection. Trying to reconnect...
+Connection id:    84
+Current database: StudentRecords
+
+Query OK, 1 row affected (0.08 sec)
+
+mysql> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATABASE' at line 1
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| butterfly          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| StudentRecords     |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE Students (
+    -> StudentID INT PRIMARY KEY,
+    -> Name VARCHAR(50),
+    -> Age INT,
+    -> Major VARCHAR(50)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO Students (StudentID, Name, Age, Major)
+    -> VALUES (1, 'Alice', 20, 'Computer Science');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM STUDENTS;
++-----------+-------+------+------------------+
+| StudentID | Name  | Age  | Major            |
++-----------+-------+------+------------------+
+|         1 | Alice |   20 | Computer Science |
++-----------+-------+------+------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO Students (StudentID, Name, Age, Major) VALUES (4, 'Jacky', 12, 'Computer Science');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM STUDENTS;
++-----------+-------+------+------------------+
+| StudentID | Name  | Age  | Major            |
++-----------+-------+------+------------------+
+|         1 | Alice |   20 | Computer Science |
+|         4 | Jacky |   12 | Computer Science |
++-----------+-------+------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO Students (StudentID, Name, Age, Major) VALUES (3, 'Jocelyn', 19, 'Computer Science');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM STUDENTS;
++-----------+---------+------+------------------+
+| StudentID | Name    | Age  | Major            |
++-----------+---------+------+------------------+
+|         1 | Alice   |   20 | Computer Science |
+|         3 | Jocelyn |   19 | Computer Science |
+|         4 | Jacky   |   12 | Computer Science |
++-----------+---------+------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO Students (StudentID, Name, Age, Major) VALUES (2, 'Ashley', 9, 'Computer Science');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM STUDENTS;
++-----------+---------+------+------------------+
+| StudentID | Name    | Age  | Major            |
++-----------+---------+------+------------------+
+|         1 | Alice   |   20 | Computer Science |
+|         2 | Ashley  |    9 | Computer Science |
+|         3 | Jocelyn |   19 | Computer Science |
+|         4 | Jacky   |   12 | Computer Science |
++-----------+---------+------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> DESC STUDENTS;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| StudentID | int         | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| Age       | int         | YES  |     | NULL    |       |
+| Major     | varchar(50) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> CREATE TABLE Students(
+    -> StudentID INT PRIMARY KEY,
+    -> Name VARCHAR(50),
+    -> Age INT,
+    -> Major VARCHAR(50)
+    -> ) ;
+ERROR 1050 (42S01): Table 'students' already exists
+mysql> CREATE TABLE Budget (
+    -> StudentID INT PRIMARY KEY,
+    -> Name VARCHAR(50),
+    -> Age INT,
+    -> Major VARCHAR(50)
+    -> ) ;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Students (StudentID, Name, Age, Major)
+    -> VALUES (4, 'Jocelyn', 20, 'Computer Science');
+ERROR 1062 (23000): Duplicate entry '4' for key 'students.PRIMARY'
+mysql> INSERT INTO Students (StudentID, Name, Age, Major) VALUES (9, 'Jocelyn', 5, 'Computer Science');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM BUDGET;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO Budget (StudentID, Name, Age, Major) VALUES (9, 'Jocelyn', 5, 'Computer Science');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM BUDGET;
++-----------+---------+------+------------------+
+| StudentID | Name    | Age  | Major            |
++-----------+---------+------+------------------+
+|         9 | Jocelyn |    5 | Computer Science |
++-----------+---------+------+------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO Budget (StudentID, Name, Age, Major) VALUES (6, 'Carlos', 3, 'Computer Science');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM BUDGET;
++-----------+---------+------+------------------+
+| StudentID | Name    | Age  | Major            |
++-----------+---------+------+------------------+
+|         6 | Carlos  |    3 | Computer Science |
+|         9 | Jocelyn |    5 | Computer Science |
++-----------+---------+------+------------------+
+2 rows in set (0.01 sec)
+
+mysql> INSERT INTO Budget (StudentID, Name, Age, Major) VALUES (8, 'Julia', 4, 'Computer Science');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM BUDGET;
++-----------+---------+------+------------------+
+| StudentID | Name    | Age  | Major            |
++-----------+---------+------+------------------+
+|         6 | Carlos  |    3 | Computer Science |
+|         8 | Julia   |    4 | Computer Science |
+|         9 | Jocelyn |    5 | Computer Science |
++-----------+---------+------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> ) CREATE TABLE Walmart;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') CREATE TABLE Walmart' at line 1
+mysql> ) CREATE TABLE Walmart (
+    -> StudentID INT PRIMARY KEY,
+    -> Name VARCHAR(50),
+    -> Age INT,
+    -> Major VARCHAR(50)
+    -> ) ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') CREATE TABLE Walmart (
+StudentID INT PRIMARY KEY,
+Name VARCHAR(50),
+Age INT,
+M' at line 1
+mysql> CREATE TABLE Amazon(
+    -> StudentID INT PRIMARY KEY,
+    -> Name VARCHAR(50),
+    -> Age INT,
+    -> Major VARCHAR(50)
+    -> ) ;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> ) INSERT INTO Students (StudentID, Name, Age, Major)
+    -> VALUES (1, 'Alice', 20, 'Computer Science');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') INSERT INTO Students (StudentID, Name, Age, Major)
+VALUES (1, 'Alice', 20, 'Co' at line 1
+mysql> ) INSERT INTO Amazon (StudentID, Object, Price, Color) VALUES (1, 'Bag', 22, 'Green');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') INSERT INTO Amazon (StudentID, Object, Price, Color) VALUES (1, 'Bag', 22, 'Gr' at line 1
+mysql> ) INSERT INTO Amazon (StudentID, Object, Price, Color) VALUES (1, 'Bag', 22, 'Green');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') INSERT INTO Amazon (StudentID, Object, Price, Color) VALUES (1, 'Bag', 22, 'Gr' at line 1
+mysql> ) INSERT INTO Students (StudentID, Name, Age, Major)
+    -> VALUES (1, 'Alice', 20, 'Computer Science');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') INSERT INTO Students (StudentID, Name, Age, Major)
+VALUES (1, 'Alice', 20, 'Co' at line 1
+mysql> ) INSERT INTO Amazon (StudentID, Name, Age, Major) VALUES (1, 'Gabby', 20, 'Computer Science');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') INSERT INTO Amazon (StudentID, Name, Age, Major) VALUES (1, 'Gabby', 20, 'Comp' at line 1
+mysql> ) INSERT INTO Amazon (StudentID, Name, Age, Major) VALUES (1, 'Gabby', 20, 'Computer Science');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') INSERT INTO Amazon (StudentID, Name, Age, Major) VALUES (1, 'Gabby', 20, 'Comp' at line 1
+mysql> SELECT * FROM Amazon
+    -> ;
+Empty set (0.01 sec)
+
+mysql> ) INSERT INTO Amazon (StudentID, Name, Age, Major) VALUES (1, 'Gabby', 20, 'Computer Science');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') INSERT INTO Amazon (StudentID, Name, Age, Major) VALUES (1, 'Gabby', 20, 'Comp' at line 1
+mysql> ) INSERT INTO Amazon(StudentID,Name,Age,Major) VALUES (1,'Gabby',20,'Computer Science');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') INSERT INTO Amazon(StudentID,Name,Age,Major) VALUES (1,'Gabby',20,'Computer Sc' at line 1
+mysql> INSERT INTO Amazon (StudentID, Name, Age, Major) 
+    -> VALUES (1, 'Gabby', 20, 'Computer Science');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO Amazon (StudentID, Name, Age, Major)  VALUES (2, 'Abby', 33, 'Computer Science');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM Amazon;
++-----------+-------+------+------------------+
+| StudentID | Name  | Age  | Major            |
++-----------+-------+------+------------------+
+|         1 | Gabby |   20 | Computer Science |
+|         2 | Abby  |   33 | Computer Science |
++-----------+-------+------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> CREATE TABLE Apple( StudentID INT PRIMARY KEY, Name VARCHAR(50), Age INT, Major VARCHAR(50) ); 
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO Apple (StudentID, Name, Age, Major)  VALUES (1, 'Annie', 99, 'Computer Science');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM Apple;
++-----------+-------+------+------------------+
+| StudentID | Name  | Age  | Major            |
++-----------+-------+------+------------------+
+|         1 | Annie |   99 | Computer Science |
++-----------+-------+------+------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO Apple (StudentID, Name, Age, Major)  VALUES (1, ‘Annie’, 20, 'Computer Science');
+ERROR 1054 (42S22): Unknown column '‘Annie’' in 'field list'
+mysql> INSERT INTO Apple (StudentID, Name, Age, Major)  VALUES (7, ‘Angel’, 45, 'Computer Science');
+ERROR 1054 (42S22): Unknown column '‘Angel’' in 'field list'
+mysql> INSERT INTO Apple (StudentID, Name, Age, Major)  VALUES (8, ‘Finn’, 54, 'Computer Science');
+ERROR 1054 (42S22): Unknown column '‘Finn’' in 'field list'
+mysql> INSERT INTO Apple (StudentID, Name, Age, Major) 
+    -> VALUES (8, 'Finn', 54, 'Computer Science');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO Apple (StudentID, Name, Age, Major)  VALUES (9, 'Finn', 54, 'Computer Science');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM Apple;
++-----------+-------+------+------------------+
+| StudentID | Name  | Age  | Major            |
++-----------+-------+------+------------------+
+|         1 | Annie |   99 | Computer Science |
+|         8 | Finn  |   54 | Computer Science |
+|         9 | Finn  |   54 | Computer Science |
++-----------+-------+------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> show tables;
++--------------------------+
+| Tables_in_studentrecords |
++--------------------------+
+| Amazon                   |
+| Apple                    |
+| Budget                   |
+| Students                 |
++--------------------------+
+4 rows in set (0.04 sec)
+
+mysql> DESC Amazon;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| StudentID | int         | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| Age       | int         | YES  |     | NULL    |       |
+| Major     | varchar(50) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> DESC Apple;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| StudentID | int         | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| Age       | int         | YES  |     | NULL    |       |
+| Major     | varchar(50) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> DESC Budget;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| StudentID | int         | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| Age       | int         | YES  |     | NULL    |       |
+| Major     | varchar(50) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> DESC Students;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| StudentID | int         | NO   | PRI | NULL    |       |
+| Name      | varchar(50) | YES  |     | NULL    |       |
+| Age       | int         | YES  |     | NULL    |       |
+| Major     | varchar(50) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> 
