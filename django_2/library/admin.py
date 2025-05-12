@@ -1,4 +1,4 @@
-from  import admin 
+from import admin 
 from . import Author, Book
 
 admin.site.register(Author)
