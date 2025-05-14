@@ -1,5 +1,5 @@
 from import models
-from djangoauth.models import User
+from django.contrib.auth.models import User
 
 # --- Author Model ---
 
