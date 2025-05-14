@@ -1,15 +1,22 @@
-from import forms
-from django.core import ValidationError
-import readline
+from  import forms
+from django.core.exceptions import ValidationError
+import re
 
-class RegistrationForm(forms.Form):
-    username = forms.CharField(
-        max_length=30,
+class ContactForm(forms.Form):
+    name = forms.CharField(
+        max_length=50,
         required=True,
-        label='Username',
-        widget=forms.TextInput(attrs={'placeholder': 'Enter username'}),
+        label='Full Name',
+        widget=forms.TextInput(attrs={'placeholder': 'Your Name'}),
         error_messages={
-            'required': 'Username is required.',
-            'max_length': 'Username cannot exceed 30 characters.'
+            'required': 'Please enter your name.',
+            'max_length': 'Name must be under 50 characters.'
         }
+    )
+
+    email = forms.EmailField(
+        required=True,
+        label='Email',
+        widget=forms.EmailInput(attrs={'placeholder': 'Your Email'}
+        )
     )

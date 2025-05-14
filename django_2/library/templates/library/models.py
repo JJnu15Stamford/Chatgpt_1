@@ -1,41 +1,47 @@
-from import models
+from import forms
 from django.contrib.auth.models import User
+from django.exceptions import ValidationError
 
-# --- Author Model ---
+class UserRegistrationForm(forms.ModelForm):
+    password = forms.CharField(
+        label='Password',
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter password'}),
+        error_messages={'required': 'Password is required.'}
+    )
+    confirm_password = forms.CharField(
+        label='Confirm Password',
+        widget=forms.PasswordInput(attrs={'placeholder': 'Confirm password'}),
+        error_messages={'required': 'Please confirm your password.'}
+    )
 
-class Author(models.Model):
-    name = models.CharField(max_length=100)
-    birth_date = models.DateField(null=True, blank=True)
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+        widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'Username'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
+        }
+        error_messages = {
+            'username': {
+                'required': 'Username is required.',
+                'unique': 'This username is already taken.',
+            },
+            'email': {
+                'required': 'Email is required.',
+                'invalid': 'Enter a valid email address.',
+            }
+        }
 
-    def __str__(self):
-        return self.name
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise ValidationError("This email is already registered.")
+        return email
 
-# --- Genre Model ---
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get('password')
+        confirm_password = cleaned_data.get('confirm_password')
 
-class Genre(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.name
-
-# --- Book Model ---
-
-class Book(models.Model):
-    title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    genres = models.ManyToManyField(Genre, related_name='books')
-    published_date = models.DateField()
-
-    def __str__(self):
-        return self.title
-
-# --- Post Model (related to Django User) ---
-
-class Post(models.Model):
-    title = models.CharField(max_length=200)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
-    published_date = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
+        if password and confirm_password and password != confirm_password:
+            raise ValidationError("Passwords do not match.")
