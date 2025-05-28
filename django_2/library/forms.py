@@ -1,5 +1,7 @@
-from  import forms
+from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 import re
 
 class ContactForm(forms.Form):
@@ -17,6 +19,13 @@ class ContactForm(forms.Form):
     email = forms.EmailField(
         required=True,
         label='Email',
-        widget=forms.EmailInput(attrs={'placeholder': 'Your Email'}
-        )
+        widget=forms.EmailInput(attrs={'placeholder': 'Your Email'})
     )
+
+# ✅ Add this for user registration:
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ["username", "email", "password1", "password2"]
