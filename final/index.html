@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dog Adoption Finder</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <nav class="navbar">
+        <div class="logo">🐾 DogAdopt</div>
+        <ul class="nav-links">
+          <li><a href="#">About</a></li>
+          <li><a href="signup.html">Signup</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>Find Your Perfect Dog Companion</h1>
+      <p>Tell us your preferences and we'll recommend the best dog breeds for you.</p>
+
+      <form id="dogForm">
+        <label>Size:
+          <select name="size" required>
+            <option value="">Select size</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </label>
+
+        <label>Energy Level:
+          <select name="energy" required>
+            <option value="">Select energy level</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+
+        <label>Good with kids?
+          <select name="kids" required>
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+
+        <button type="submit">Find Breeds</button>
+      </form>
+
+      <section id="results" class="results-section">
+        <h2>Recommended Breeds:</h2>
+        <ul id="breedList"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 DogAdopt. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dog Breed Finder</title>
+  <style>
+    /* Put your background styling here */
+    body {
+      background-color: #f0f8ff; /* Example background color */
+    }
+  </style>
+  <!-- Or if you have styles.css, link it like this instead: -->
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+
+  <form id="dogForm">
+    <!-- your form elements -->
+  </form>
+
+  <ul id="breedList"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
