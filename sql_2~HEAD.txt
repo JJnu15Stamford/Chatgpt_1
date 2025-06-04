@@ -1,0 +1,193 @@
+CREATE TABLE table_name (
+    column1 datatype constraints,
+    column2 datatype constraints,
+    ...
+);
+
+-- ============================================
+-- SQL 2 Final Project by Jocelyn (Expanded)
+-- Includes relational query, normalization (3NF), and export-ready SQL
+-- ============================================
+
+-- 1. Start fresh
+DROP DATABASE IF EXISTS studentrecords;
+CREATE DATABASE studentrecords;
+USE studentrecords;
+
+-- 2. USERS table (already created earlier, preserved)
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- 3. PROFILES table (related to USERS table)
+CREATE TABLE profiles (
+    profile_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    full_name VARCHAR(100),
+    birthdate DATE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- 4. Normalize: Create ROLES table for separation of roles
+CREATE TABLE roles (
+    role_id INT PRIMARY KEY AUTO_INCREMENT,
+    role_name VARCHAR(50)
+);
+
+-- 5. USER_ROLES table (linking table, normalized many-to-many)
+CREATE TABLE user_roles (
+    user_id INT,
+    role_id INT,
+    PRIMARY KEY (user_id, role_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (role_id) REFERENCES roles(role_id)
+);
+
+-- =======================
+-- INSERT SAMPLE DATA
+-- =======================
+
+-- USERS
+INSERT INTO users (username, email, password) VALUES
+('jocelyn', 'jocelyn@example.com', 'hashedpass1'),
+('dev', 'dev@example.com', 'hashedpass2');
+
+-- PROFILES
+INSERT INTO profiles (user_id, full_name, birthdate) VALUES
+(1, 'Jocelyn Rivera', '2000-05-15'),
+(2, 'Dev Smith', '1999-09-25');
+
+-- ROLES
+INSERT INTO roles (role_name) VALUES
+('Admin'), ('Student'), ('Guest');
+
+-- USER_ROLES
+INSERT INTO user_roles (user_id, role_id) VALUES
+(1, 1), -- Jocelyn is Admin
+(1, 2), -- and Student
+(2, 2); -- Dev is Student
+
+-- =======================
+-- RELATIONAL QUERY
+-- Show users with their profiles and roles
+-- =======================
+SELECT 
+    u.user_id,
+    u.username,
+    p.full_name,
+    r.role_name
+FROM users u
+JOIN profiles p ON u.user_id = p.user_id
+JOIN user_roles ur ON u.user_id = ur.user_id
+JOIN roles r ON ur.role_id = r.role_id;
+
+-- =======================
+-- Demonstrating Core SQL
+-- =======================
+
+-- SELECT
+SELECT * FROM users;
+
+-- UPDATE
+UPDATE users SET email = 'jocelyn.new@example.com' WHERE username = 'jocelyn';
+
+-- DELETE
+DELETE FROM user_roles WHERE user_id = 2 AND role_id = 2; -- remove Dev's role
+
+mysql>-- ============================================
+-- SQL 2 Final Project by Jocelyn (Expanded)
+-- Includes relational query, normalization (3NF), and export-ready SQL
+-- ============================================
+
+-- 1. Start fresh
+DROP DATABASE IF EXISTS studentrecords;
+CREATE DATABASE studentrecords;
+USE studentrecords;
+
+-- 2. USERS table (already created earlier, preserved)
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- 3. PROFILES table (related to USERS table)
+CREATE TABLE profiles (
+    profile_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    full_name VARCHAR(100),
+    birthdate DATE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- 4. Normalize: Create ROLES table for separation of roles
+CREATE TABLE roles (
+    role_id INT PRIMARY KEY AUTO_INCREMENT,
+    role_name VARCHAR(50)
+);
+
+-- 5. USER_ROLES table (linking table, normalized many-to-many)
+CREATE TABLE user_roles (
+    user_id INT,
+    role_id INT,
+    PRIMARY KEY (user_id, role_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (role_id) REFERENCES roles(role_id)
+);
+
+-- =======================
+-- INSERT SAMPLE DATA
+-- =======================
+
+-- USERS
+INSERT INTO users (username, email, password) VALUES
+('jocelyn', 'jocelyn@example.com', 'hashedpass1'),
+('dev', 'dev@example.com', 'hashedpass2');
+
+-- PROFILES
+INSERT INTO profiles (user_id, full_name, birthdate) VALUES
+(1, 'Jocelyn Rivera', '2000-05-15'),
+(2, 'Dev Smith', '1999-09-25');
+
+-- ROLES
+INSERT INTO roles (role_name) VALUES
+('Admin'), ('Student'), ('Guest');
+
+-- USER_ROLES
+INSERT INTO user_roles (user_id, role_id) VALUES
+(1, 1), -- Jocelyn is Admin
+(1, 2), -- and Student
+(2, 2); -- Dev is Student
+
+-- =======================
+-- RELATIONAL QUERY
+-- Show users with their profiles and roles
+-- =======================
+SELECT 
+    u.user_id,
+    u.username,
+    p.full_name,
+    r.role_name
+FROM users u
+JOIN profiles p ON u.user_id = p.user_id
+JOIN user_roles ur ON u.user_id = ur.user_id
+JOIN roles r ON ur.role_id = r.role_id;
+
+-- =======================
+-- Demonstrating Core SQL
+-- =======================
+
+-- SELECT
+SELECT * FROM users;
+
+-- UPDATE
+UPDATE users SET email = 'jocelyn.new@example.com' WHERE username = 'jocelyn';
+
+-- DELETE
+DELETE FROM user_roles WHERE user_id = 2 AND role_id = 2; -- remove Dev's role
+
+
